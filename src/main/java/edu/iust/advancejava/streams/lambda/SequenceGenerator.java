@@ -11,7 +11,7 @@ import java.util.Collection;
 
 public class SequenceGenerator {
 
-    public static Collection<Integer> integers(int min, int max, int step) {
+    public static Collection<Integer> range(int min, int max, int step) {
         Collection<Integer> integers = new ArrayList<>();
         for (int i = min; i < max; i += step)
             integers.add(i);
@@ -19,7 +19,7 @@ public class SequenceGenerator {
 
     }
 
-    public static Collection<Integer> integersWithStepLogic(int min, int max, StepLogic logic) {
+    public static Collection<Integer> rangeWithStepLogic(int min, int max, StepLogic logic) {
         Collection<Integer> integers = new ArrayList<>();
         for (int i = min; i < max; i = logic.increment(i))
             integers.add(i);

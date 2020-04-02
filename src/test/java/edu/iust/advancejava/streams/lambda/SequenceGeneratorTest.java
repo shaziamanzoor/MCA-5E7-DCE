@@ -6,24 +6,24 @@ import static org.junit.Assert.assertArrayEquals;
 
 public class SequenceGeneratorTest {
     @Test
-    public void usingIntegerGenerators() {
+    public void usingRange() {
         assertArrayEquals(
-                integers(1, 10, 1).toArray(),
+                range(1, 10, 1).toArray(),
                 new Integer[]{1, 2, 3, 4, 5, 6, 7, 8, 9}
         );
     }
 
     @Test
-    public void usingIntegerGeneratorsWithStep() throws Exception {
+    public void usingRangeWithStepLogic() throws Exception {
         assertArrayEquals(
-                integersWithStepLogic(1, 20, new StepLogic() {
+                rangeWithStepLogic(1, 20, new StepLogic() {
                     @Override
                     public int increment(int i) { return i + i; }
                 }).toArray(),
                 new Integer[]{1, 2, 4, 8, 16}
         );
         assertArrayEquals(
-                integersWithStepLogic(2, 100, (i) -> i * i).toArray(),
+                rangeWithStepLogic(2, 100, (i) -> i * i).toArray(),
                 new Integer[]{2, 4, 16}
         );
     }
