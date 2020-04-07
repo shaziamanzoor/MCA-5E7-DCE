@@ -32,7 +32,7 @@ public class SequenceGeneratorTest {
     public void usingGenericSeriesWithLogic() throws Exception {
         assertArrayEquals(
                 genericSeriesWithLogic(1, seed -> seed + seed > 20 ? null : seed + seed).toArray(),
-                new Integer[]{1, 2, 4, 8, 16});
+                new Integer[]{1, 2, 4, 8,16});
 
     }
 
