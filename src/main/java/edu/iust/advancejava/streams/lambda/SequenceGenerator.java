@@ -4,11 +4,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 
-//SequenceGenerator is a class which demonstrates various ways of generating a sequence:
-// using step,
-// using step logic (by implementing the function in functional interface),
-// using Generator (using lambda expression instead of implementing the function of functional interface)
-
 public class SequenceGenerator {
 
     public static Collection<Integer> range(int min, int max, int step) {
@@ -16,7 +11,6 @@ public class SequenceGenerator {
         for (int i = min; i < max; i += step)
             integers.add(i);
         return integers;
-
     }
 
     public static Collection<Integer> rangeWithStepLogic(int min, int max, StepLogic logic) {
