@@ -88,7 +88,7 @@ public void usingRangeWithStepLogic() throws Exception {
 The second example  `SequenceAggregator` will walk you through  the concept of Lambdas with Generics.
 
 ##  Sequence Aggregator
-The first couple of methods [`SequenceAggregator#sum`] (https://github.com/ShaziaManzoor/MCA-5E7-DCE/blob/4419c03dfc656361b7bf0a4db24d6c4ec98a0764/src/main/java/edu/iust/advancejava/streams/lambda/SequenceAggregator.java#L8 )  & [`SequenceAggregator#product`] (https://github.com/ShaziaManzoor/MCA-5E7-DCE/blob/4419c03dfc656361b7bf0a4db24d6c4ec98a0764/src/main/java/edu/iust/advancejava/streams/lambda/SequenceAggregator.java#L15 ) demonstrate summation and product of elements of a list.
+The first couple of methods [`SequenceAggregator#sum`](https://github.com/ShaziaManzoor/MCA-5E7-DCE/blob/master/src/main/java/edu/iust/advancejava/streams/lambda/SequenceAggregator.java#L8 )   & [`SequenceAggregator#product`](https://github.com/ShaziaManzoor/MCA-5E7-DCE/blob/master/src/main/java/edu/iust/advancejava/streams/lambda/SequenceAggregator.java#L15 )  demonstrate summation and product of elements of a list.
 
 ```java
 
@@ -107,7 +107,7 @@ public static int product(Collection<Integer> list){
     }
 ```
 
-We can generalize this kind of aggregation using [`SequenceAggregator#simpleReduce`](https://github.com/ShaziaManzoor/MCA-5E7-DCE/blob/4419c03dfc656361b7bf0a4db24d6c4ec98a0764/src/main/java/edu/iust/advancejava/streams/lambda/SequenceAggregator.java#L22). It takes  an  initValue with type `T`(generic type) , a generic interface, and a generic list and returns a result of generic type `T`. We can use this reduce method to implement the above two methods (`sum` and `product`).
+We can generalize this kind of aggregation using [`SequenceAggregator#simpleReduce`](https://github.com/ShaziaManzoor/MCA-5E7-DCE/blob/master/src/main/java/edu/iust/advancejava/streams/lambda/SequenceAggregator.java#L22). It takes  an  initValue with type `T`(generic type) , a generic interface, and a generic list and returns a result of generic type `T`. We can use this reduce method to implement the above two methods (`sum` and `product`).
     
 ```java
 
@@ -120,7 +120,7 @@ We can generalize this kind of aggregation using [`SequenceAggregator#simpleRedu
     }    
 ```
 
-Now, let's try a bit involved example of removing negative numbers for a list. The  method  [`SequenceAggregator#removeNegatives`] (https://github.com/ShaziaManzoor/MCA-5E7-DCE/blob/4419c03dfc656361b7bf0a4db24d6c4ec98a0764/src/main/java/edu/iust/advancejava/streams/lambda/SequenceAggregator.java#L36)takes a list and removes the negative values.
+Now, let's try a bit involved example of removing negative numbers for a list. The  method  [`SequenceAggregator#removeNegatives`](https://github.com/ShaziaManzoor/MCA-5E7-DCE/blob/master/src/main/java/edu/iust/advancejava/streams/lambda/SequenceAggregator.java#L36)takes a list and removes the negative values.
 
 ```java
 
@@ -135,7 +135,7 @@ public static Collection<Integer> removeNegatives(Collection<Integer> list){
     
 ```
 
-This example cannot be implemented using the above [`simpleReduce` ](https://github.com/ShaziaManzoor/MCA-5E7-DCE/blob/4419c03dfc656361b7bf0a4db24d6c4ec98a0764/src/main/java/edu/iust/advancejava/streams/lambda/SequenceAggregator.java#L22)method because of the way the types have been defined. The method's result is limited by the type of the list element. We can overcome this limitation by a new implementation  of this method, [`SequenceAggregator#reduce`] (https://github.com/ShaziaManzoor/MCA-5E7-DCE/blob/4419c03dfc656361b7bf0a4db24d6c4ec98a0764/src/main/java/edu/iust/advancejava/streams/lambda/SequenceAggregator.java#L29). It takes an` initValue`, an aggregator interface `Aggregator ` and a list. We can use this method to solve all the above three problems. 
+This example cannot be implemented using the above [`simpleReduce` ](https://github.com/ShaziaManzoor/MCA-5E7-DCE/blob/master/src/main/java/edu/iust/advancejava/streams/lambda/SequenceAggregator.java#L22)method because of the way the types have been defined. The method's result is limited by the type of the list element. We can overcome this limitation by a new implementation  of this method, [`SequenceAggregator#reduce`](https://github.com/ShaziaManzoor/MCA-5E7-DCE/blob/master/src/main/java/edu/iust/advancejava/streams/lambda/SequenceAggregator.java#L29). It takes an` initValue`, an aggregator interface `Aggregator ` and a list. We can use this method to solve all the above three problems. 
 
 ```java
 
@@ -150,7 +150,7 @@ This example cannot be implemented using the above [`simpleReduce` ](https://git
      
 ## Map
 
-The method [`SequenceAggregator#lengths`](https://github.com/ShaziaManzoor/MCA-5E7-DCE/blob/4419c03dfc656361b7bf0a4db24d6c4ec98a0764/src/main/java/edu/iust/advancejava/streams/lambda/SequenceAggregator.java#L60) takes a list of and returns the length of each string in a list.
+The method [`SequenceAggregator#lengths`](https://github.com/ShaziaManzoor/MCA-5E7-DCE/blob/master/src/main/java/edu/iust/advancejava/streams/lambda/SequenceAggregator.java#L60) takes a list of and returns the length of each string in a list.
 
 ``` java
 public static Collection<Integer> lengths(Collection<String> strings){
@@ -161,7 +161,7 @@ public static Collection<Integer> lengths(Collection<String> strings){
     }  
     
 ```
-The method  [`SequenceAggregator#map`] (https://github.com/ShaziaManzoor/MCA-5E7-DCE/blob/4419c03dfc656361b7bf0a4db24d6c4ec98a0764/src/main/java/edu/iust/advancejava/streams/lambda/SequenceAggregator.java#L67)takes a list and and applies a lambda on all elements of the list and returns the modified list. So our map can also do what `lengths()` can do and much more. 
+The method  [`SequenceAggregator#map`](https://github.com/ShaziaManzoor/MCA-5E7-DCE/blob/master/src/main/java/edu/iust/advancejava/streams/lambda/SequenceAggregator.java#L67)takes a list and and applies a lambda on all elements of the list and returns the modified list. So our map can also do what `lengths()` can do and much more. 
     
 ``` java
 
@@ -174,7 +174,7 @@ The method  [`SequenceAggregator#map`] (https://github.com/ShaziaManzoor/MCA-5E7
     
 ```
 
-The map can also be implemented using our [`SequenceAggregator#reduce`] (https://github.com/ShaziaManzoor/MCA-5E7-DCE/blob/4419c03dfc656361b7bf0a4db24d6c4ec98a0764/src/main/java/edu/iust/advancejava/streams/lambda/SequenceAggregator.java#L45)function as demonstrated.
+The map can also be implemented using our [`SequenceAggregator#reduce`](https://github.com/ShaziaManzoor/MCA-5E7-DCE/blob/master/src/main/java/edu/iust/advancejava/streams/lambda/SequenceAggregator.java#L45)function as demonstrated.
 
 
 ```java
@@ -189,7 +189,7 @@ The map can also be implemented using our [`SequenceAggregator#reduce`] (https:/
 ```
 ##FlatMap
 
-`Flatmap` takes a list and a `FlatMapper`. The [`FlatMapper#map`] (https://github.com/ShaziaManzoor/MCA-5E7-DCE/blob/4419c03dfc656361b7bf0a4db24d6c4ec98a0764/src/main/java/edu/iust/advancejava/streams/lambda/SequenceAggregator.java#L74)method takes each element of the list and returns a list of type `U`. The `flatMap` then combines these lists together and returns the result.
+`Flatmap` takes a list and a `FlatMapper`. The [`FlatMapper#map`](https://github.com/ShaziaManzoor/MCA-5E7-DCE/blob/master/src/main/java/edu/iust/advancejava/streams/lambda/SequenceAggregator.java#L74)method takes each element of the list and returns a list of type `U`. The `flatMap` then combines these lists together and returns the result.
 
 ```java
 
@@ -204,7 +204,7 @@ The map can also be implemented using our [`SequenceAggregator#reduce`] (https:/
 
 ##Filter
 
-The method [`SequenceAggregator#filter`](https://github.com/ShaziaManzoor/MCA-5E7-DCE/blob/4419c03dfc656361b7bf0a4db24d6c4ec98a0764/src/main/java/edu/iust/advancejava/streams/lambda/SequenceAggregator.java#L81)takes a list and `check`(`Predicate` interface which returns a `boolean`)and gives us a list based on whether `check` has returned `true` or `false` for a particular element in a list.
+The method [`SequenceAggregator#filter`](https://github.com/ShaziaManzoor/MCA-5E7-DCE/blob/master/src/main/java/edu/iust/advancejava/streams/lambda/SequenceAggregator.java#L81)takes a list and `check`(`Predicate` interface which returns a `boolean`)and gives us a list based on whether `check` has returned `true` or `false` for a particular element in a list.
  
 ```java
     
@@ -235,7 +235,7 @@ We can also implement `filter()` by using `reduce()` as follows
 
 ## takeWhile
  
- The method [`SequenceAggregator#takeWhile`](https://github.com/ShaziaManzoor/MCA-5E7-DCE/blob/4419c03dfc656361b7bf0a4db24d6c4ec98a0764/src/main/java/edu/iust/advancejava/streams/lambda/SequenceAggregator.java#L90)takes a list and a `check`(`Predicate` interface which returns a boolean)and gives us a list up to the element where the `check` funtion returns `false`.
+ The method [`SequenceAggregator#takeWhile`](https://github.com/ShaziaManzoor/MCA-5E7-DCE/blob/master/src/main/java/edu/iust/advancejava/streams/lambda/SequenceAggregator.java#L90)takes a list and a `check`(`Predicate` interface which returns a boolean)and gives us a list up to the element where the `check` funtion returns `false`.
   
 ```java
  
