@@ -19,6 +19,20 @@ public class SequenceAggregator {
         return result;
     }
 
+    public static <T> T simpleReduce(T initValue, SimpleAggregator<T> aggregator, Collection<T> list){
+        T result = initValue;
+        for(T item: list)
+            result = aggregator.op(result, item);
+        return result;
+    }
+
+    public static <U, T> U reduce(U initValue, Aggregator<U, T> aggregator, Collection<T> list){
+        U result = initValue;
+        for(T item: list)
+            result = aggregator.op(result, item);
+        return result;
+    }
+
     public static Collection<Integer> removeNegatives(Collection<Integer> list){
         Collection<Integer> result = new ArrayList<>();
         for(Integer item: list)
@@ -28,30 +42,15 @@ public class SequenceAggregator {
         return result;
     }
 
-    public static <T> T simpleReduce(T initValue, Aggregator<T> aggregator, Collection<T> list){
-        T result = initValue;
-
-        for(T item: list)
-            result = aggregator.op(result, item);
-        return result;
-    }
-
-    public static <U, T> U betterReduce(U initValue, BetterAggregator<U, T> aggregator, Collection<T> list){
-        U result = initValue;
-        for(T item: list)
-            result = aggregator.op(result, item);
-        return result;
-    }
-
     public static <U, T> Collection<U> mapUsingReduce(Collection<T> items, Mapper<U, T> mapper){
-        return betterReduce(new ArrayList<U>(), (result, item) -> {
+        return reduce(new ArrayList<U>(), (result, item) -> {
             result.add(mapper.map(item));
             return result;
         }, items);
     }
 
     public static <T> Collection<T> filterUsingReduce(Collection<T> items, Predicate <T> filter){
-        return betterReduce(new ArrayList<>(), (result, item) -> {
+        return reduce(new ArrayList<>(), (result, item) -> {
             if (filter.test(item))
                 result.add(item);
             return result;

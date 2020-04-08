@@ -1,5 +1,5 @@
 package edu.iust.advancejava.streams.lambda;
 
-public interface Aggregator<T> {
-    T op(T result, T value);
+public interface Aggregator<U, T> {
+    U op(U result, T item);
 }
