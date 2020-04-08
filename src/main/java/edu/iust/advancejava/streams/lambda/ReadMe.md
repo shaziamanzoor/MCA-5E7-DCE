@@ -84,7 +84,7 @@ public void usingRangeWithStepLogic() throws Exception {
     
 ```
 
-#Lambdas Continued...
+# Lambdas Continued...
 The second example  `SequenceAggregator` will walk you through  the concept of Lambdas with Generics.
 
 ##  Sequence Aggregator
@@ -148,7 +148,7 @@ This example cannot be implemented using the above [`simpleReduce` ](https://git
         
 ```
      
-## Map
+## map
 
 The method [`SequenceAggregator#lengths`](https://github.com/ShaziaManzoor/MCA-5E7-DCE/blob/master/src/main/java/edu/iust/advancejava/streams/lambda/SequenceAggregator.java#L60) takes a list of and returns the length of each string in a list.
 
@@ -187,7 +187,7 @@ The map can also be implemented using our [`SequenceAggregator#reduce`](https://
     }   
 
 ```
-##FlatMap
+## flatMap
 
 `Flatmap` takes a list and a `FlatMapper`. The [`FlatMapper#map`](https://github.com/ShaziaManzoor/MCA-5E7-DCE/blob/master/src/main/java/edu/iust/advancejava/streams/lambda/SequenceAggregator.java#L74)method takes each element of the list and returns a list of type `U`. The `flatMap` then combines these lists together and returns the result.
 
@@ -202,7 +202,7 @@ The map can also be implemented using our [`SequenceAggregator#reduce`](https://
 
 ```
 
-##Filter
+## filter
 
 The method [`SequenceAggregator#filter`](https://github.com/ShaziaManzoor/MCA-5E7-DCE/blob/master/src/main/java/edu/iust/advancejava/streams/lambda/SequenceAggregator.java#L81)takes a list and `check`(`Predicate` interface which returns a `boolean`)and gives us a list based on whether `check` has returned `true` or `false` for a particular element in a list.
  
