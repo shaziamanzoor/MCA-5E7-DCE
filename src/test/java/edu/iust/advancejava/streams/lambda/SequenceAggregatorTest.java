@@ -37,27 +37,24 @@ public class SequenceAggregatorTest {
     }
 
     @Test
-    public void testBetterReduce() throws Exception {
-        assertEquals(new Integer(15), betterReduce(0, (result, item) -> result + item, Arrays.asList(1, 2, 3, 4, 5)));
-        assertEquals(new Integer(120), betterReduce(1, (result, item) -> result * item, Arrays.asList(1, 2, 3, 4, 5)));
+    public void testReduce() throws Exception {
+        assertEquals(new Integer(15), reduce(0, (result, item) -> result + item, Arrays.asList(1, 2, 3, 4, 5)));
+        assertEquals(new Integer(120), reduce(1, (result, item) -> result * item, Arrays.asList(1, 2, 3, 4, 5)));
 
         assertArrayEquals(new Integer[]{1, 2, 3, 5},
-                betterReduce(new ArrayList<Integer>(), (result, item) -> {
+                reduce(new ArrayList<Integer>(), (result, item) -> {
                     if (item >= 0)
                         result.add(item);
                     return result;
                 }, Arrays.asList(1, 2, -5, -6, 3, -4, 5)).toArray());
 
         assertArrayEquals(new Integer[]{3, 4, 6},
-                betterReduce(new ArrayList<Integer>(), (result, item) -> {
+                reduce(new ArrayList<Integer>(), (result, item) -> {
                     result.add(item.length());
                     return result;
                 }, Arrays.asList("cat", "dogs", "donkey")).toArray());
 
     }
-
-
-
 
     @Test
     public void testMapUsingReduce() throws Exception {
@@ -85,8 +82,14 @@ public class SequenceAggregatorTest {
         assertArrayEquals(new Integer[]{8, 7, 9},
                 map(Arrays.asList("Srinagar", "Pulwama", "Baramulla"), String::length).toArray());
 
+        assertArrayEquals(new Integer[]{2, 4 ,6},
+                map(Arrays.asList(1, 2, 3), i -> i * 2).toArray());
+
         assertArrayEquals(new String[]{"SRINAGAR", "PULWAMA", "BARAMULLA"},
                 map(Arrays.asList("Srinagar", "Pulwama", "Baramulla"), String::toUpperCase).toArray());
+
+        assertArrayEquals(new String[]{"iqra", "zakir"},
+                map(Arrays.asList("IQRA", "ZAKIR"), String::toLowerCase).toArray());
     }
 
     @Test
