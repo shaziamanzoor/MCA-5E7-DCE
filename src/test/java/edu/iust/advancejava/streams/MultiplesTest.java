@@ -39,12 +39,6 @@ public class MultiplesTest {
     }
 
     @Test
-    public void testPrimeFactors(){
-        assertEquals(Arrays.asList(2, 2, 3, 5, 7), primeFactors(420));
-    }
-
-
-    @Test
     public void testIsPrime() {
         assertFalse(isPrime(20));
         assertTrue(isPrime(19));
