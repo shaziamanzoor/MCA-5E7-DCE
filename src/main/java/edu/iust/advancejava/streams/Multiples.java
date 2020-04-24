@@ -14,6 +14,7 @@ public class Multiples {
      * @return stream with only multiples of 5.
      */
     public static Stream<Integer> multiplesOf5(Stream<Integer> values){
+
         return values.filter(x -> x % 5 == 0);
     }
 

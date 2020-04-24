@@ -28,7 +28,8 @@ public class MultiplesTest {
 
     @Test
     public void testSumOfMultiplesOfN() {
-        assertEquals(9, sumOfMultiplesOfN(Stream.of(1, 2, 3, 4, 5, 6), 3));
+        assertEquals(9,
+                sumOfMultiplesOfN(Stream.of(1, 2, 3, 4, 5, 6), 3));
     }
 
     @Test
@@ -36,7 +37,11 @@ public class MultiplesTest {
         assertEquals(
                 IntStream.of(1, 2, 5, 10).boxed().collect(Collectors.toList()),
                 factors(10).boxed().collect(Collectors.toList()));
-    }
+
+    assertEquals(
+            IntStream.of(1, 2, 4, 8).boxed().collect(Collectors.toList()),
+    factors(8).boxed().collect(Collectors.toList()));
+}
 
     @Test
     public void testIsPrime() {
