@@ -37,7 +37,7 @@ public class CollectionProblems {
                 },
                 (xs, ys) -> {
                     xs.forEach((key, value) -> ys.merge(key, value, (xValue, yValue) -> xValue + yValue));
-                    return xs;
+                    return ys;
                 });
     }
 
