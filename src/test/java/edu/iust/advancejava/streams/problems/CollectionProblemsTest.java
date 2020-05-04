@@ -54,12 +54,15 @@ public class CollectionProblemsTest {
         expected.put(5, 1);
         expected.put(6, 1);
         assertEquals(expected, stream.collect(frequencies()));
+    }
 
 
+    @Test
+    public void testFrequenciesWithParallelStream() throws Exception {
         // count the frequency of characters in a string
         String message = "Java 8 ExAmpLe to execuTe StreaMs in pArallel";
 
-        Map<Character, Integer> expectedCharFrequency= new HashMap<>();
+        Map<Character, Integer> expectedCharFrequency = new HashMap<>();
         expectedCharFrequency.put('j', 1);
         expectedCharFrequency.put('a', 6);
         expectedCharFrequency.put('v', 1);
@@ -83,16 +86,16 @@ public class CollectionProblemsTest {
         // use .chars() to get an instance of IntStream(integer representation of the characters) from the input String.
         // and then convert it to Stream char via .mapToObj()
 
-        Stream<Character> characterStream = message.toLowerCase().chars().mapToObj(c-> (char) c).parallel();
+        Stream<Character> characterStream = message.toLowerCase().chars().mapToObj(c -> (char) c).parallel();
+        assertTrue(characterStream.isParallel());
 
         assertEquals(
                 expectedCharFrequency,
                 characterStream.collect(frequencies()));
-
-        assertTrue(characterStream.isParallel());
-
+    }
 
 
+    @Test public void testFrequenciesInParallel2(){
         Stream<String> dayWiseWeatherReportStream = Stream.of(
                 "Sunny", "Rainy", "Cloudy", "Sunny", "Rainy", "Sunny", "Sunny", "Cloudy", "Rainy", "Sunny",
                 "Sunny", "Rainy", "Cloudy", "Sunny", "Rainy", "Cloudy", "Rainy", "Sunny", "Sunny", "Rainy",
@@ -111,10 +114,6 @@ public class CollectionProblemsTest {
         );
 
         assertTrue(dayWiseWeatherReportStream.isParallel());
-
-        // stream in parallel mode can be converted back to the sequential mode by using the sequential() method
-        assertFalse(dayWiseWeatherReportStream.sequential().isParallel());
-   
     }
 
 }
