@@ -31,6 +31,6 @@ public class ReflectionUtilsTest {
     }
     @Test
     public void testMakeFirstCharLower() throws Exception {
-        assertEquals("shazia",ReflectionUtils.makeFirstCharLower("Shazia"));
+        assertEquals("shazia", ReflectionUtils.makeFirstCharLower("Shazia"));
     }
 }

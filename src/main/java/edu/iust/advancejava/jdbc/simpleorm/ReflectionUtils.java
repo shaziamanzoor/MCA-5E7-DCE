@@ -21,7 +21,7 @@ public class ReflectionUtils {
     public static List<FieldInfo> getFieldNames(Class<?> clazz){
         //getDeclaredMethods() returns an array of method objects representing all the methods defined in this class object
         return Arrays.stream(clazz.getDeclaredMethods())
-                .map(ReflectionUtils::getGetter)
+                .map(ReflectionUtils::getGetter)//looping over getters
                 .filter(Optional::isPresent)
                 .map(Optional::get)//take out those values form optional
                 .collect(Collectors.toList());
