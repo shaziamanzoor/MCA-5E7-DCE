@@ -31,10 +31,7 @@ public class CollectionProblems {
     public static <T> Collector<T, Map<T, Integer>, Map<T, Integer>> frequencies(){
         return Collector.of(
                 HashMap::new,
-                (acc, x) -> {
-                    int count = acc.getOrDefault(x, 0);
-                    acc.put(x, count + 1);
-                },
+                (acc, x) -> acc.merge(x, (acc.getOrDefault(x, 0)) + 1, (v1, v2)-> v2),
                 (xs, ys) -> {
                     xs.forEach((key, value) -> ys.merge(key, value, (xValue, yValue) -> xValue + yValue));
                     return ys;
